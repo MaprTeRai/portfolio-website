@@ -58,3 +58,37 @@ contactForm.addEventListener('submit', (e) => {
         alert('Please fill in all fields.');
     }
 });
+// Scroll to Top Button
+const scrollBtn = document.getElementById('scrollToTopBtn');
+window.onscroll = function () {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+scrollBtn.onclick = function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// Theme toggle
+const toggleThemeBtn = document.getElementById('themeToggle');
+toggleThemeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+});
+
+// Clock
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clock').textContent = now.toLocaleTimeString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Greeting
+const hour = new Date().getHours();
+let greeting = "สวัสดีตอนเย็น";
+if (hour < 12) greeting = "สวัสดีตอนเช้า";
+else if (hour < 18) greeting = "สวัสดีตอนบ่าย";
+document.getElementById('greeting').textContent = greeting;

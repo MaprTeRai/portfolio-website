@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
@@ -53,14 +57,15 @@ body {
 }
 
 .nav-link {
-    color: #333;
+    color: #00186f;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-link:hover {
-    color: #3498db;
+    color: #00a6ff;
 }
 
 .nav-toggle {
@@ -76,6 +81,27 @@ body {
     margin: 3px 0;
     transition: 0.3s;
 }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a:hover {
+  color: #00a6ff; 
+}
+
+nav a:hover::after {
+  width: 100%;
+}
 
 /* Hero Section */
 .hero {
@@ -83,18 +109,32 @@ body {
     display: flex;
     align-items: center;
     padding: 100px 20px 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #16148e 0%, #0048ff 100%);
     color: white;
 }
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 100%;
+    padding-right: 20px;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    animation: fadeInUp 1.2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .highlight {
@@ -102,9 +142,21 @@ body {
 }
 
 .hero-subtitle {
+    animation: slideInLeft 1.5s ease forwards;
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    opacity: 0.9;
+    opacity: 0;
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .hero-description {
@@ -127,6 +179,7 @@ body {
     transition: all 0.3s ease;
     display: inline-block;
     text-align: center;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -136,7 +189,9 @@ body {
 
 .btn-primary:hover {
     background: #2980b9;
-    transform: translateY(-2px);
+    transform: scale(1.07);
+    opacity: 0.8;
+    box-shadow: 0 0 15px 4px rgba(52, 152, 219, 0.5);
 }
 
 .btn-secondary {
@@ -148,6 +203,9 @@ body {
 .btn-secondary:hover {
     background: white;
     color: #333;
+    transform: scale(1.05);
+    opacity: 0.7;
+    box-shadow: inset;
 }
 
 .hero-image {
@@ -236,9 +294,21 @@ body {
 }
 
 .skill-item i {
+    animation: pulse 2.5s infinite;
     font-size: 3rem;
     color: #3498db;
     margin-bottom: 1rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    color: #3498db;
+  }
+  50% {
+    transform: scale(1.1);
+    color: #2980b9;
+  }
 }
 
 .skill-item h3 {
@@ -267,7 +337,8 @@ body {
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 2);
 }
 
 .project-card img {
@@ -355,10 +426,13 @@ body {
     border-radius: 50%;
     text-decoration: none;
     transition: background 0.3s ease;
+    cursor: pointer;
 }
 
 .social-links a:hover {
-    background: #2980b9;
+  background: linear-gradient(45deg, #2980b9, #3498db);
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(41, 128, 185, 0.6);
 }
 
 /* Contact Form */
@@ -368,6 +442,15 @@ body {
     border-radius: 10px;
 }
 
+.contact-form button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(41, 128, 185, 0.7);
+}
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -390,106 +473,48 @@ body {
 
 /* Footer */
 .footer {
+    position: relative;
+    overflow: hidden;
     background: #2c3e50;
     color: white;
     text-align: center;
     padding: 2rem 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 120px 20px 50px;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero-image {
-        margin-bottom: 2rem;
-    }
-
-    .hero-image img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .about-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z" fill="%23ffffff"/></svg>') no-repeat;
+    background-size: cover;
 }
 
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.8rem;
-    }
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  display: none;
+  cursor: pointer;
+  z-index: 1000;
+}
 
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .project-links {
-        flex-direction: column;
-    }
+.dark-theme {
+  background-color: #121212;
+  color: #a7a7a7;
+}
+.dark-theme .section-title,
+.dark-theme .stat-item h3,
+.dark-theme .project-info h3 {
+  color: #ffcc25;
+}
+.dark-theme .btn-primary {
+  background: #000000;
 }

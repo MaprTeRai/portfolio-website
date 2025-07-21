@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
-    <link rel="stylesheet" href="csss/style.css">
+    <title>Chayanan Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+<button id="scrollToTopBtn">↑</button>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -22,6 +24,8 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <button id="themeToggle" class="btn btn-secondary">🌗</button>
+            <p id="clock" style="font-weight:bold;"></p>
             <div class="nav-toggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -33,43 +37,44 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hello, I'm <span class="highlight">Your Name</span></h1>
-            <p class="hero-subtitle">Full Stack Developer</p>
-            <p class="hero-description">I create beautiful and functional web applications</p>
+            <h1>สวัสดีฉันชื่อ <span class="highlight">ชยานันท์ เพชรรักษ์</span></h1>
+            <p id="greeting"></p>
+            <p class="hero-subtitle">Junior Software</p>
+            <p class="hero-description">ฉันกำลังศึกษาในวิศวกรรมซอร์ฟแวร์ ปีที่ 2</p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#projects" class="btn btn-primary">ดูงานของผม</a>
+                <a href="#contact" class="btn btn-secondary">ช่องทางติดต่อ</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="images/profile.jpg" alt="Profile Picture">
+            <img src="/images/MuPaHuaRaBirth.jpg" alt="Profile Picture">
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">เกี่ยวกับฉัน</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a passionate Full Stack Developer with experience in creating web applications using modern technologies. I love solving complex problems and learning new technologies.</p>
+                    <p>ฉันเป็นนักศึกษาวิศวกรรมซอร์ฟแวร์ปีที่ 2 กำลังพยายามหาความรู้ในการเขียนโปรแกรมอยู่ นี้คือจำนวนผลงานที่ฉันมีตอนนี้</p>
                     <div class="about-stats">
                         <div class="stat-item">
-                            <h3>2+</h3>
-                            <p>Years Experience</p>
+                            <h3>1+</h3>
+                            <p>ประสบการณ์การเรียนโปรแกรม</p>
                         </div>
                         <div class="stat-item">
-                            <h3>15+</h3>
-                            <p>Projects Completed</p>
+                            <h3>5+</h3>
+                            <p>งานที่ผ่านมา</p>
                         </div>
                         <div class="stat-item">
-                            <h3>10+</h3>
-                            <p>Happy Clients</p>
+                            <h3>5</h3>
+                            <p>เข้าใจภาษาโปรแกรม</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/about.jpg" alt="About Image">
+                    <img src="images/เพิ่มข้อความในส่วนเนื้อหาเล็กน้อย.png" alt="About Image">
                 </div>
             </div>
         </div>
@@ -78,37 +83,22 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title">ความสามารถในการเขียนโปรแกรม</h2>
             <div class="skills-grid">
                 <div class="skill-item">
                     <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                    <p>Semantic markup and modern HTML5 features</p>
+                    <h3>HTML</h3>
+                    <p>พื้นฐานเบื้องต้นในการเขียน HTML</p>
                 </div>
                 <div class="skill-item">
                     <i class="fab fa-css3-alt"></i>
                     <h3>CSS3</h3>
-                    <p>Responsive design and modern CSS techniques</p>
+                    <p>พื้นฐานเบื้องต้นในการเขียน Css</p>
                 </div>
                 <div class="skill-item">
                     <i class="fab fa-js-square"></i>
                     <h3>JavaScript</h3>
-                    <p>ES6+ features and modern JavaScript</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                    <p>Component-based UI development</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-node-js"></i>
-                    <h3>Node.js</h3>
-                    <p>Server-side JavaScript development</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <h3>MongoDB</h3>
-                    <p>NoSQL database management</p>
+                    <p>พื้นฐานเบื้องต้นในการเขียน JavaScript</p>
                 </div>
             </div>
         </div>
@@ -117,13 +107,13 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">My Projects</h2>
+            <h2 class="section-title">งานที่ผ่านมา</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="images/project1.jpg" alt="Project 1">
+                    <img src="images/RoakDek.jpg" alt="Project 1">
                     <div class="project-info">
-                        <h3>E-commerce Website</h3>
-                        <p>A full-stack e-commerce solution built with React and Node.js</p>
+                        <h3>Program for fun</h3>
+                        <p>A project Use Basic Html , Css and JavaScript To try something new.</p>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">Live Demo</a>
                             <a href="#" class="btn btn-small btn-secondary">GitHub</a>
@@ -131,10 +121,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="images/project2.jpg" alt="Project 2">
+                    <img src="images/Nom Krok.jpg" alt="Project 2">
                     <div class="project-info">
-                        <h3>Task Management App</h3>
-                        <p>A collaborative task management application with real-time updates</p>
+                        <h3>Thai Pudding Coconut</h3>
+                        <p>A Home profuct into a Project development with program</p>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">Live Demo</a>
                             <a href="#" class="btn btn-small btn-secondary">GitHub</a>
@@ -142,10 +132,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="images/project3.jpg" alt="Project 3">
+                    <img src="images/E Te Case.jpg" alt="Project 3">
                     <div class="project-info">
-                        <h3>Weather App</h3>
-                        <p>A responsive weather application with location-based forecasts</p>
+                        <h3>Logo Crow</h3>
+                        <p>A funny character with friend to interested program for use</p>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">Live Demo</a>
                             <a href="#" class="btn btn-small btn-secondary">GitHub</a>
@@ -159,23 +149,23 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">ช่องทางติดต่อ</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's work together</h3>
-                    <p>I'm always interested in hearing about new projects and opportunities.</p>
+                    <h3>มาทำงานด้วยกันสิ</h3>
+                    <p>ผมสนใจในการศึกษาและเขียนโปรแกรมกับบุคคลที่มีฝีมือ และ สนใจที่จะพัฒนาตนเองไปเรื่อยๆ</p>
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>your.email@example.com</span>
+                            <span>maiphetcharux1@gmail.com</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+66 12 345 6789</span>
+                            <span>+66 91 197 5045</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Bangkok, Thailand</span>
+                            <span>Chiang Mai, Thailand</span>
                         </div>
                     </div>
                     <div class="social-links">
@@ -186,15 +176,15 @@
                 </div>
                 <form class="contact-form">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="ชื่อ" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="อีเมล" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <textarea name="message" placeholder="ข้อความ" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary">ส่งข้อความ</button>
                 </form>
             </div>
         </div>
@@ -203,10 +193,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Your Name. Software Engineering, RMUTL. All rights reserved.</p>
+            <p>&copy; 2025 ชยานันท์ เพชรรักษ์. วิศวกรรมซอร์ฟแวร์, มหาวิทยาลัยราชมงคลล้านนา. ลิขสิทธิ์ฟรีสำหรับทุกคน.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
