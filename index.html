@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chayanan Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-<button id="scrollToTopBtn">↑</button>
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -24,8 +29,6 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button id="themeToggle" class="btn btn-secondary">🌗</button>
-            <p id="clock" style="font-weight:bold;"></p>
             <div class="nav-toggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -37,9 +40,13 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>สวัสดีฉันชื่อ <span class="highlight">ชยานันท์ เพชรรักษ์</span></h1>
+            <h2>สวัสดีฉันชื่อ <span class="highlight">ชยานันท์ เพชรรักษ์</span></h2>
             <p id="greeting"></p>
-            <p class="hero-subtitle">Junior Software</p>
+            <p class="hero-subtitle">
+                <span id="typing-text"></span>
+                <span class="cursor">|</span>
+
+            </p>
             <p class="hero-description">ฉันกำลังศึกษาในวิศวกรรมซอร์ฟแวร์ ปีที่ 2</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">ดูงานของผม</a>
@@ -57,7 +64,8 @@
             <h2 class="section-title">เกี่ยวกับฉัน</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>ฉันเป็นนักศึกษาวิศวกรรมซอร์ฟแวร์ปีที่ 2 กำลังพยายามหาความรู้ในการเขียนโปรแกรมอยู่ นี้คือจำนวนผลงานที่ฉันมีตอนนี้</p>
+                    <p>ฉันเป็นนักศึกษาวิศวกรรมซอร์ฟแวร์ปีที่ 2 กำลังพยายามหาความรู้ในการเขียนโปรแกรมอยู่
+                        นี้คือจำนวนผลงานที่ฉันมีตอนนี้</p>
                     <div class="about-stats">
                         <div class="stat-item">
                             <h3>1+</h3>
@@ -83,21 +91,21 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">ความสามารถในการเขียนโปรแกรม</h2>
+            <h3 class="section-title">ความสามารถในการเขียนโปรแกรม</h3>
             <div class="skills-grid">
                 <div class="skill-item">
                     <i class="fab fa-html5"></i>
-                    <h3>HTML</h3>
+                    <h4>HTML</h4>
                     <p>พื้นฐานเบื้องต้นในการเขียน HTML</p>
                 </div>
                 <div class="skill-item">
                     <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
+                    <h4>CSS3</h4>
                     <p>พื้นฐานเบื้องต้นในการเขียน Css</p>
                 </div>
                 <div class="skill-item">
                     <i class="fab fa-js-square"></i>
-                    <h3>JavaScript</h3>
+                    <h4>JavaScript</h4>
                     <p>พื้นฐานเบื้องต้นในการเขียน JavaScript</p>
                 </div>
             </div>
@@ -105,14 +113,36 @@
     </section>
 
     <!-- Projects Section -->
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Apps</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="ui">UI/UX</button>
+    </div>
+
+    <div class="projects-grid">
+        <div class="project-card" data-category="web">
+            <!-- Project content -->
+        </div>
+        <div class="project-card" data-category="mobile">
+            <!-- Project content -->
+        </div>
+        <div class="project-card" data-category="ui">
+            <!-- Project content -->
+        </div>
+    </div>
+    </div>
+    </section>
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">งานที่ผ่านมา</h2>
+            <h4 class="section-title">งานที่ผ่านมา</h4>
             <div class="projects-grid">
                 <div class="project-card">
                     <img src="images/RoakDek.jpg" alt="Project 1">
                     <div class="project-info">
-                        <h3>Program for fun</h3>
+                        <h4>Program for fun</h4>
                         <p>A project Use Basic Html , Css and JavaScript To try something new.</p>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">Live Demo</a>
@@ -123,7 +153,7 @@
                 <div class="project-card">
                     <img src="images/Nom Krok.jpg" alt="Project 2">
                     <div class="project-info">
-                        <h3>Thai Pudding Coconut</h3>
+                        <h4>Thai Pudding Coconut</h4>
                         <p>A Home profuct into a Project development with program</p>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">Live Demo</a>
@@ -134,7 +164,7 @@
                 <div class="project-card">
                     <img src="images/E Te Case.jpg" alt="Project 3">
                     <div class="project-info">
-                        <h3>Logo Crow</h3>
+                        <h4>Logo Crow</h4>
                         <p>A funny character with friend to interested program for use</p>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">Live Demo</a>
@@ -149,10 +179,10 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">ช่องทางติดต่อ</h2>
+            <h4 class="section-title">ช่องทางติดต่อ</h4>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>มาทำงานด้วยกันสิ</h3>
+                    <h4>มาทำงานด้วยกันสิ</h4>
                     <p>ผมสนใจในการศึกษาและเขียนโปรแกรมกับบุคคลที่มีฝีมือ และ สนใจที่จะพัฒนาตนเองไปเรื่อยๆ</p>
                     <div class="contact-details">
                         <div class="contact-item">
@@ -199,4 +229,5 @@
 
     <script src="js/script.js"></script>
 </body>
+
 </html>

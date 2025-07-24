@@ -43,13 +43,13 @@ window.addEventListener('scroll', () => {
 const contactForm = document.querySelector('.contact-form');
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     // Get form data
     const formData = new FormData(contactForm);
     const name = formData.get('name');
     const email = formData.get('email');
     const message = formData.get('message');
-    
+
     // Simple validation
     if (name && email && message) {
         alert('Thank you for your message! I will get back to you soon.');
@@ -58,33 +58,43 @@ contactForm.addEventListener('submit', (e) => {
         alert('Please fill in all fields.');
     }
 });
-// Scroll to Top Button
-const scrollBtn = document.getElementById('scrollToTopBtn');
-window.onscroll = function () {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    scrollBtn.style.display = "block";
-  } else {
-    scrollBtn.style.display = "none";
-  }
-};
+// Back to Top Button
+const backToTopButton = document.getElementById('backToTop');
 
-scrollBtn.onclick = function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+function toggleBackToTop() {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+}
 
-// Theme toggle
-const toggleThemeBtn = document.getElementById('themeToggle');
-toggleThemeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-theme');
+backToTopButton.addEventListener('click', function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+    // Add click animation
+    this.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+        this.style.transform = 'scale(1)';
+    }, 100);
 });
 
-// Clock
-function updateClock() {
-  const now = new Date();
-  document.getElementById('clock').textContent = now.toLocaleTimeString();
+// Throttle scroll event for performance
+let ticking = false;
+function requestTick() {
+    if (!ticking) {
+        window.requestAnimationFrame(toggleBackToTop);
+        ticking = true;
+    }
 }
-setInterval(updateClock, 1000);
-updateClock();
+
+window.addEventListener('scroll', () => {
+    requestTick();
+    ticking = false;
+});
 
 // Greeting
 const hour = new Date().getHours();
@@ -92,3 +102,88 @@ let greeting = "สวัสดีตอนเย็น";
 if (hour < 12) greeting = "สวัสดีตอนเช้า";
 else if (hour < 18) greeting = "สวัสดีตอนบ่าย";
 document.getElementById('greeting').textContent = greeting;
+
+// Project Filter System
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+const visibleCount = document.getElementById('visible-count');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        let visibleProjects = 0;
+        
+        // Filter projects with animation
+        projectCards.forEach((card, index) => {
+            setTimeout(() => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.classList.remove('hide');
+                    visibleProjects++;
+                } else {
+                    card.classList.add('hide');
+                }
+                
+                // Update visible count
+                visibleCount.textContent = visibleProjects;
+            }, index * 50); // Stagger animation
+        });
+        
+        // Add ripple effect to button
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+
+// Typing Animation
+class TypeWriter {
+    constructor(textElement, words, wait = 3000) {
+        this.textElement = textElement;
+        this.words = words;
+        this.text = '';
+        this.wordIndex = 0;
+        this.wait = parseInt(wait, 10);
+        this.isDeleting = false;
+        this.type();
+    }
+
+    type() {
+        const current = this.wordIndex % this.words.length;
+        const fullText = this.words[current];
+
+        if (this.isDeleting) {
+            this.text = fullText.substring(0, this.text.length - 1);
+        } else {
+            this.text = fullText.substring(0, this.text.length + 1);
+        }
+
+        this.textElement.innerHTML = this.text;
+
+        let typeSpeed = 150;
+        if (this.isDeleting) typeSpeed /= 2;
+
+        if (!this.isDeleting && this.text === fullText) {
+            typeSpeed = this.wait;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.text === '') {
+            this.isDeleting = false;
+            this.wordIndex++;
+            typeSpeed = 500;
+        }
+
+        setTimeout(() => this.type(), typeSpeed);
+    }
+}
+
+// Initialize typing effect
+const typingText = document.getElementById('typing-text');
+const words = ['Full Stack Developer', 'React Specialist', 'UI/UX Designer'];
+new TypeWriter(typingText, words, 2000);
